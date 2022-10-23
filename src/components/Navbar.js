@@ -13,7 +13,7 @@
 //   )
 // }
 // import { Link } from "gatsby";
-import { Link } from '@mui/material'
+import { Link } from "@mui/material";
 
 import * as React from "react";
 import PropTypes from "prop-types";
@@ -49,13 +49,21 @@ function DrawerAppBar(props) {
       </Typography>
       <Divider />
       <List>
-        {navItems.map((item) => (
-          <ListItem key={item} disablePadding>
-            <ListItemButton sx={{ textAlign: "center" }}>
-              <ListItemText primary={item} />
-            </ListItemButton>
-          </ListItem>
-        ))}
+        <ListItem key={navItems[0]} disablePadding>
+          <ListItemButton to="/" sx={{ textAlign: "center" }}>
+            <ListItemText primary={navItems[0]} />
+          </ListItemButton>
+        </ListItem>
+        <ListItem key={navItems[1]} disablePadding>
+          <ListItemButton to="/about" sx={{ textAlign: "center" }}>
+            <ListItemText primary={navItems[1]} />
+          </ListItemButton>
+        </ListItem>
+        <ListItem key={navItems[2]} disablePadding>
+          <ListItemButton sx={{ textAlign: "center" }}>
+            <ListItemText href="/" primary={navItems[2]} />
+          </ListItemButton>
+        </ListItem>
       </List>
     </Box>
   );
@@ -85,9 +93,30 @@ function DrawerAppBar(props) {
           </Typography>
           <Box sx={{ display: { xs: "none", sm: "block" } }}>
             {/* <Link to="/" sx={{ color: "#fff" }}>Home</Link> */}
-            <Button href="/" key={navItems[0]} sx={{ color: "#fff" }} variant="outlined">{navItems[0]}</Button>
-            <Button href="/about" key={navItems[1]} sx={{ color: "#fff" }} variant="outlined">{navItems[1]}</Button>
-            <Button href="/" key={navItems[2]} sx={{ color: "#fff" }} variant="outlined">{navItems[2]}</Button>
+            <Button
+              href="/"
+              key={navItems[0]}
+              sx={{ color: "#fff" }}
+              variant="outlined"
+            >
+              {navItems[0]}
+            </Button>
+            <Button
+              href="/about"
+              key={navItems[1]}
+              sx={{ color: "#fff" }}
+              variant="outlined"
+            >
+              {navItems[1]}
+            </Button>
+            <Button
+              href="/"
+              key={navItems[2]}
+              sx={{ color: "#fff" }}
+              variant="outlined"
+            >
+              {navItems[2]}
+            </Button>
           </Box>
         </Toolbar>
       </AppBar>
